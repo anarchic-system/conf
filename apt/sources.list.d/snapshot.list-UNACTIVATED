@@ -1,0 +1,35 @@
+##
+## APT Source file
+##  for snapshot
+##
+##  by LeRouge
+
+## Sources:
+## - Nico-D
+## - http://snapshot.debian.org/
+## - http://blog.andrewbeacock.com/2007/03/how-to-install-specific-version-of.html
+## Procedure:
+##  1- find the package and the version that might be a problem
+##     look at /var/log/dpkg
+##      -> <problematic_package>
+##  2- find out the version history of the problematic package
+##     look in /usr/share/doc/<problematic_package>/changelog.Debian.gz
+##  3- try to remember when was the last apt-get upgrade without a problem
+##      -> <anteprob_version> & <anteprob_date>
+##  4- browse snapshot.debian.org/archive/debian/?year=<anteprob_date_yyyy>;month=<anteprob_date_mm>
+##  5- pickup an exact date/time you want to try
+##      -> <fix_datetime>
+##  6- add <fix_datetime> in the source line below
+##  7- update
+##    7.1- apt-get update if <fix_datetime> > <now> − 12 days
+##    7.2- apt-get -o Acquire::Check-Valid-Until=false update 
+##           if <fix_datetime> < <now> − 12 days
+##  8- check there is the version you want
+##     apt-cache policy <problematic_package>
+##  9- install the package in the wanted version
+##     apt-get install <problematic_package>=<anteprob_version>
+##
+## Notes:
+## - <anteprob_version> include the '<number>:' before the actual version if any##
+#deb http://snapshot.debian.org/archive/debian/20160722T041656Z/ testing main #contrib non-free
+#deb http://snapshot.debian.org/archive/debian/20160901T042215Z/ testing main
