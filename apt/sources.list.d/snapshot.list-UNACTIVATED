@@ -3,11 +3,13 @@
 ##  for snapshot
 ##
 ##  by LeRouge
+##
 
 ## Sources:
 ## - Nico-D
 ## - http://snapshot.debian.org/
 ## - http://blog.andrewbeacock.com/2007/03/how-to-install-specific-version-of.html
+##
 ## Procedure:
 ##  1- find the package and the version that might be a problem
 ##     look at /var/log/dpkg
